@@ -1,0 +1,41 @@
+name: Publish to NPM
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish-to-npm:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Echo Event Trigger
+        run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Fetch all history for tags and branches
+
+      - name: Echo Repository Cloned
+        run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
+
+      - name: Echo Node.js Setup
+        run: echo "📦 Node.js ${{ env.NODE_VERSION }} has been set up."
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Publish to NPM
+        run: npm publish
+        env:
+          NODE_VERSION: 16.x
