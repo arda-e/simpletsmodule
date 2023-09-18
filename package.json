@@ -1,0 +1,16 @@
+{
+  "name": "simpletsmodule",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/arda-e/simpletsmodule.git",
+  "author": "Meric Arda Eren <aeren@netas.com.tr>",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  }
+}
