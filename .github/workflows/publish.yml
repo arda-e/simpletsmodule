@@ -25,7 +25,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 16.x
-
+          registry-url: 'https://registry.npmjs.org'
       - name: Echo Node.js Setup
         run: echo "📦 Node.js ${{ env.NODE_VERSION }} has been set up."
 
@@ -38,4 +38,4 @@ jobs:
       - name: Publish to NPM
         run: npm publish
         env:
-          NODE_VERSION: 16.x
+            NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
