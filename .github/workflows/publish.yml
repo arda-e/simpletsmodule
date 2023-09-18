@@ -30,7 +30,7 @@ jobs:
         run: echo "📦 Node.js ${{ env.NODE_VERSION }} has been set up."
 
       - name: Install Dependencies
-        run: yarn ci
+        run: yarn install --frozen-lockfile # For yarn v1.x
 
       - name: Build
         run: yarn build
