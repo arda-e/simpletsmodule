@@ -30,12 +30,12 @@ jobs:
         run: echo "📦 Node.js ${{ env.NODE_VERSION }} has been set up."
 
       - name: Install Dependencies
-        run: yarn install --frozen-lockfile # For yarn v1.x
+        run: npm ci 
 
       - name: Build
-        run: yarn build
+        run: npm build
 
       - name: Publish to NPM
-        run: yarn publish --access public --token ${{ secrets.NPM_TOKEN }}
+        run: npm publish
         env:
           NODE_VERSION: 16.x
