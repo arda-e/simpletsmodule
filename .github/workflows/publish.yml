@@ -30,12 +30,12 @@ jobs:
         run: echo "📦 Node.js ${{ env.NODE_VERSION }} has been set up."
 
       - name: Install Dependencies
-        run: npm ci
+        run: yarn ci
 
       - name: Build
-        run: npm run build
+        run: yarn build
 
       - name: Publish to NPM
-        run: npm publish
+        run: yarn publish
         env:
           NODE_VERSION: 16.x
